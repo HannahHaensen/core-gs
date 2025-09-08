@@ -6,6 +6,6 @@ Hannah Schieber, Dominik Frischmann, Simon Boche, Victor Schaack, Angela Schoell
 TBA
 
 ## Code
-Feel free to reach out if you want to compare with our method
+Feel free to reach out if you want to compare with our method on other datasets
 
 
