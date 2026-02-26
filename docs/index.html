@@ -638,12 +638,12 @@
         <div class="col-lg-6 col-sm-12 text-center">
             <p><b>GAGA</b></p>
 
-            <img src="assets/videos/gaga.gif" >
+            <img class="sync-gif" data-src="assets/videos/gaga.gif" >
         </div>
         <!-- Ours -->
         <div class="col-lg-6 col-sm-12 text-center">
             <p><b>Ours (CoRe-GS)</b></p>
-             <img src="assets/videos/ours.gif">
+             <img class="sync-gif" data-src="assets/videos/ours.gif">
         </div>
 
     </div>
@@ -652,12 +652,12 @@
 
         <div class="col-lg-6 col-sm-12 text-center">
             <p><b>Gaussian Grouping</b></p>
-             <img src="assets/videos/gg_7.gif" >
+             <img class="sync-gif" data-src="assets/videos/gg_7.gif" >
         </div>
         <!-- Ours -->
         <div class="col-lg-6 col-sm-12 text-center">
             <p><b>Ours (CoRe-GS)</b></p>
-             <img src="assets/videos/ours_7.gif">
+             <img class="sync-gif" data-src="assets/videos/ours_7.gif">
         </div>
 
     </div>
@@ -755,6 +755,18 @@
     </div>
 
     <br><br>
+    <script>
+window.addEventListener("load", function () {
+    const gifs = document.querySelectorAll(".sync-gif");
+
+    // Small delay ensures layout is stable
+    setTimeout(() => {
+        gifs.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }, 100);
+});
+</script>
 
 </div>
 
