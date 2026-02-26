@@ -539,241 +539,253 @@
 
 <body>
 
-
 <div class="container">
-    <br>
-    <br>
-    <h1 style="align-content: center; text-align: center">CoRe-GS: Coarse-to-Refined Gaussian Splatting with Semantic Object Focus</h1>
-    <h5></h5>
+    <br><br>
 
+    <h1 class="text-center">
+        CoRe-GS: Coarse-to-Refined Gaussian Splatting with Semantic Object Focus
+    </h1>
 
     <br>
-    <div class="row" style="align-content: center; text-align: center">
+
+    <!-- Authors -->
+    <div class="row text-center">
         <div class="col-md-12">
-            <b><a href="">Hannah Schieber
-                <sup>1,5</sup></a>, Dominik Frischmann
-                <sup>2</sup>, Simon Boche
-                <sup>1</sup>, Victor Schaack
-                <sup>3</sup>, Angela Schoellig
-                <sup>4</sup>, Stefan Leutenegger
-                <sup>1</sup>, and Daniel Roth<sup>4</sup></b>
+            <b>
+                Hannah Schieber<sup>1,2,4</sup>,
+                Dominik Frischmann<sup>1,2</sup>,
+                Simon Boche<sup>1,3</sup>,
+                Victor Schaack<sup>1,2</sup>,
+                Angela Schoellig<sup>2</sup>,
+                Stefan Leutenegger<sup>3</sup>,
+                Daniel Roth<sup>1,2</sup>
+            </b>
         </div>
     </div>
+
     <br>
-    <div class="row" style="align-content: center; text-align: center">
-        <div class="col-md-3 col-sm-6">
-            
+
+    <!-- Affiliations -->
+    <div class="row text-center">
+        <div class="col-md-6">
             Human-Centered Computing and Extended Reality Lab,
-TUM University Hospital, Clinic for Orthopedics and Sports Orthopedics,
-Munich Institute of Robotics and Machine Intelligence (MIRMI)
-            <sup>1</sup>
+            TUM University Hospital, Clinic for Orthopedics and Sports Orthopedics,
+            Munich Institute of Robotics and Machine Intelligence (MIRMI)<sup>1</sup>
         </div>
-        <div class="col-md-4 col-sm-6">
-            Technical University of Munich
-            <sup>2</sup>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            Technical University of Munich
-            <sup>3</sup>
-        </div>
-        
-        <div class="col-md-6 col-sm-6">
-            Mobile Robotics Lab, Department of Mechanical and Process Engineering, ETH Zurich
-            <sup>4</sup>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            Friedrich-Alexander University (FAU) Erlangen-Nurnberg,
-            Erlangen, Germany
-            <sup>5</sup>
+        <div class="col-md-6">
+            Technical University of Munich<sup>2</sup>
         </div>
     </div>
+
+    <br>
+
+    <div class="row text-center">
+        <div class="col-md-6">
+            Mobile Robotics Lab, ETH Zurich<sup>3</sup>
+        </div>
+        <div class="col-md-6">
+            Friedrich-Alexander University (FAU) Erlangen-Nürnberg<sup>4</sup>
+        </div>
+    </div>
+
     <br>
     <hr>
-    <div class="row" style="align-content: center; text-align: center">
 
-        <div class="col-md-6">
-            <a href="https://www.arxiv.org/abs/2409.15959.pdf">
+    <!-- Links -->
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <a href="https://arxiv.org/abs/2509.04859">
                 <img src="https://github.com/HannahHaensen/SCGS/blob/gh-pages/docs/assets/paper.png?raw=true"
-                     style="width: 50px; border: 1px black solid"></a>
-            <p>arixv</p>
+                     style="width:50px; border:1px solid black">
+            </a>
+            <p>arXiv</p>
         </div>
-        <div class="col-md-6">
-            Would like to compare your object removal and extraction with our work on a different dataset? Feel free to reach out.
-            <br>hannah dot schieber [at] tum dot de
+
+        <div class="col-md-4">
+            Code — Coming Soon
         </div>
+
+        <div class="col-md-4">
+            Interested in comparing object removal & extraction?<br>
+            Contact: hannah dot schieber [at] tum dot de
+        </div>
+
     </div>
+
     <hr>
-    <br>
-    <div class="row">
-        <h3>Abstract</h3>
-        <div class="col-md-12">
-            Mobile reconstruction for autonomous aerial robotics holds strong potential for critical applications such as tele-guidance and disaster response. These tasks demand both accurate 3D reconstruction and fast scene processing. Instead of reconstructing the entire scene in detail, it is often more efficient to focus on specific objects, i.e., points of interest (PoIs). Mobile robots equipped with advanced sensing can usually detect these early during data acquisition or preliminary analysis, reducing the need for full-scene optimization.
-Gaussian Splatting (GS) has recently shown promise in delivering high-quality novel view synthesis and 3D representation by an incremental learning process. Extending GS with scene editing, semantics adds useful per-splat features to isolate objects effectively.
 
-Semantic 3D Gaussian editing can already be achieved before the full training cycle is completed, reducing the overall training time. Moreover, the semantically relevant area, the PoI, is usually already known during capturing. To balance high-quality reconstruction with reduced training time, we propose CoRe-GS. We first generate a coarse segmentation-ready scene with semantic GS and then refine it for the semantic object using our novel color-based effective filtering for effective object isolation. This is speeding up the training process to be about a quarter less than a full training cycle for semantic GS. We evaluate our approach on two datasets, SCRREAM (real-world, outdoor) and NeRDS 360 (synthetic,  indoor), showing reduced runtime and higher novel-view-synthesis quality.
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <h3>Architecture</h3>
-
-    </div>
+    <!-- Abstract -->
     <div class="row">
         <div class="col-md-12">
-            <img style="width: 100%"
-                 src="assets/arch.pdf?raw=true">
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <h3>Evaluation</h3>
-        <div class="container">
-
-            <br>
-            <hr>
-            <h5>Novel View Synthesis</h5>
-            <br>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <span>Neo360 Scene</span>
-                    <br>
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping <br>  (convex)</span>
-                            <img src="assets/gg/gg_convex_hull_suv_offroad196.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/ours_suv_offroad_01-196_render_it_30000.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <span>Neo360 Scene</span>
-                    <br>
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping <br> (direct)</span>
-                            <img src="assets/gg/gg_no_convex_hull_suv_offroad_01-196.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/ours_suv_offroad_01-196_render_it_30000.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-            </div>
-
-            <br>
-            <hr>
-            <br>
-            <div class="row">
-
-                <div class="col-lg-6 col-sm-12">
-                    <span>Scrream Dataset</span>
-                    <br>
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping <br> (convex)</span>
-                            <img src="assets/gg/gg_convex_hull_000256.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/ours_000256_render_it_30000.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <span>Scrream Dataset</span>
-                    <br>
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping <br> (direct)</span>
-                            <img src="assets/gg/gg_no_convex_hull_000256.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/ours_000256_render_it_30000.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-            </div>
-
-
-            <br>
-            <hr>
-            <h5>Object removal examples on the Short Ride scene</h5>
-            <br>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping  <br> (improved labels)  <br> (convex hull)</span>
-                            <img src="assets/gg/removal.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/removal.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <!-- Beginn Bildwechsel -->
-                    <div class="js-img-compare">
-                        <div style="display: none;">
-                            <span class="images-compare-label">Gaussian Grouping <br> (improved labels)  <br> (direct removal)</span>
-                            <img src="assets/gg/removal_our_methd.png" alt="Before">
-                        </div>
-                        <div>
-                            <span class="images-compare-label">Ours</span>
-                            <img src="assets/ours/removal.png" alt="After">
-                        </div>
-                    </div>
-                    <!-- Ende Bildwechsel -->
-                </div>
-            </div>
-
-            <br>
-            <hr>
-
-        </div>
-        <br>
-        <br>
-        <br>
-    </div>
-    <br>
-
-    <h3>Citation</h3>
-    <div class="row">
-        <div class="col-md-12">
-            <p style="background: lightgray; margin: 10px; padding: 10px;">
-                 
-                @misc{schieber2025coregscoarsetorefinedgaussiansplatting,
-      title={CoRe-GS: Coarse-to-Refined Gaussian Splatting with Semantic Object Focus},
-      author={Hannah Schieber and Dominik Frischmann and Simon Boche and Victor Schaack and Angela Schoellig and Stefan Leutenegger and Daniel Roth},
-      year={2025},
-      eprint={2509.04859},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2509.04859},
-}
+            <h3>Abstract</h3>
+            <p>
+                Fast and efficient reconstruction supports time-critical tasks such as tele-guidance and disaster
+                response.
+                CoRe-GS introduces a semantic POI-focused Gaussian Splatting pipeline that first builds a fast
+                segmentation-ready
+                representation and then selectively refines semantically relevant regions.
+                This significantly reduces training time while improving novel view quality in areas of interest.
             </p>
         </div>
     </div>
-</div>
 
+    <hr>
+
+    <div class="row">
+
+        <!-- Baseline -->
+        <div class="col-lg-6 col-sm-12 text-center">
+            <p><b>GAGA</b></p>
+            <video class="img-fluid"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   controls>
+                <source src="assets/videos/gaga.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- Ours -->
+        <div class="col-lg-6 col-sm-12 text-center">
+            <p><b>Ours (CoRe-GS)</b></p>
+            <video class="img-fluid"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   controls>
+                <source src="assets/videos/ours.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6 col-sm-12 text-center">
+            <p><b>Gaussian Grouping</b></p>
+            <video class="img-fluid"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   controls>
+                <source src="assets/videos/gg_7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- Ours -->
+        <div class="col-lg-6 col-sm-12 text-center">
+            <p><b>Ours (CoRe-GS)</b></p>
+            <video class="img-fluid"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   controls>
+                <source src="assets/videos/ours_7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
+    <!-- Comparison Rows -->
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <div class="js-img-compare">
+                <div style="display:none;">
+                    <span class="images-compare-label">Gaussian Grouping (convex)</span>
+                    <img src="assets/gg/gg_convex_1.png">
+                </div>
+                <div>
+                    <span class="images-compare-label">Ours</span>
+                    <img src="assets/gg/ours_1.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <div class="js-img-compare">
+                <div style="display:none;">
+                    <span class="images-compare-label">Gaussian Grouping (direct)</span>
+                    <img src="assets/gg/gg_direct_1.png">
+                </div>
+                <div>
+                    <span class="images-compare-label">Ours</span>
+                    <img src="assets/gg/ours_1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <div class="js-img-compare">
+                <div style="display:none;">
+                    <span class="images-compare-label">GAGA (direct)</span>
+                    <img src="assets/gg/gaga_direct_1.png">
+                </div>
+                <div>
+                    <span class="images-compare-label">Ours</span>
+                    <img src="assets/gg/ours_1.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <div class="js-img-compare">
+                <div style="display:none;">
+                    <span class="images-compare-label">SAGD (post-processing)</span>
+                    <img src="assets/gg/sagd_1.png">
+                </div>
+                <div>
+                    <span class="images-compare-label">Ours</span>
+                    <img src="assets/gg/ours_1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <!-- Architecture -->
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Architecture</h3>
+            <img style="width:100%" src="assets/arch.pdf?raw=true">
+        </div>
+    </div>
+
+    <br><br>
+
+
+    <!-- Citation -->
+    <h3>Citation</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <pre style="background:#eee; padding:15px;">
+@misc{schieber2025coregscoarsetorefinedgaussiansplatting,
+  title        = {CoRe-GS: Coarse-to-Refined Gaussian Splatting with Semantic Object Focus},
+  author       = {Schieber, Hannah and Frischmann, Dominik and Boche, Simon and
+                  Schaack, Victor and Schoellig, Angela and Leutenegger, Stefan and Roth, Daniel},
+  year         = {2025},
+  eprint       = {2509.04859},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CV},
+  url          = {https://arxiv.org/abs/2509.04859}
+}
+            </pre>
+        </div>
+    </div>
+
+    <br><br>
+
+</div>
 
 </body>
 </html>
